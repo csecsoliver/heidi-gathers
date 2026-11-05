@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://daorjccjtpud4"]
+
+[ext_resource type="Script" uid="uid://8ouv7yqjrrj7" path="res://wall.gd" id="1_xxgf6"]
+
+[sub_resource type="Gradient" id="Gradient_7mycd"]
+colors = PackedColorArray(0.26631698, 0.14245692, 0, 1, 0.26631698, 0.14245692, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_u0j4i"]
+gradient = SubResource("Gradient_7mycd")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_avcld"]
+size = Vector2(15, 238)
+
+[node name="Wall" type="StaticBody2D" unique_id=1610491615]
+script = ExtResource("1_xxgf6")
+
+[node name="WallSprite" type="Sprite2D" parent="." unique_id=1106577295]
+position = Vector2(0.49999952, 2)
+scale = Vector2(0.12109375, 254)
+texture = SubResource("GradientTexture1D_u0j4i")
+
+[node name="WallShape" type="CollisionShape2D" parent="." unique_id=890277701]
+position = Vector2(0.5, 1)
+shape = SubResource("RectangleShape2D_avcld")
+
+[connection signal="ready" from="." to="." method="_on_ready"]
+[connection signal="tree_entered" from="." to="." method="_on_tree_entered"]
